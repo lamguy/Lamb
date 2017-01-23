@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project: one
+  name: MyString
+  label: MyString
+  default_value: MyString
+
+two:
+  project: two
+  name: MyString
+  label: MyString
+  default_value: MyString

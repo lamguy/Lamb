@@ -24,7 +24,10 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
-    @task = Task.new(task_params)
+    @project = Project.find(task_params[:project_id])
+    @task = @project.tasks.new(task_params)
+    @task.name = task_params[:name]
+    @task.assigner_id = current_user.id
 
     respond_to do |format|
       if @task.save
@@ -69,6 +72,6 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:name, :due)
+      params.require(:task).permit(:project_id, :assigner_id, :assignee_id, :name, :due)
     end
 end
