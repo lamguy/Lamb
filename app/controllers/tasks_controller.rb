@@ -26,8 +26,7 @@ class TasksController < ApplicationController
   def create
     @project = Project.find(task_params[:project_id])
     @task = @project.tasks.new(task_params)
-    @task.name = task_params[:name]
-    @task.assigner_id = current_user.id
+    @task.assigner = current_user
 
     respond_to do |format|
       if @task.save

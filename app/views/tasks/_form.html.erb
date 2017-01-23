@@ -17,6 +17,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :assignee %>
+    <%= collection_select(:task, :assignee_id, User.all, :id, :email, prompt: true) %>
+  </div>
+
+  <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>
   </div>

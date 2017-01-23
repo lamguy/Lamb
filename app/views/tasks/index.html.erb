@@ -1,8 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+<div class="row">
+  <div class="col">
 <h1>Tasks</h1>
 
-<table>
+<table class="table table-sm table-striped">
   <thead>
     <tr>
       <th>Name</th>
@@ -24,6 +26,7 @@
   </tbody>
 </table>
 
-<br>
+  </div>
+</div>
 
-<%= link_to 'New Task', new_task_path %>
+<%= link_to 'New Task', new_task_path, :class => "btn btn-success" %>
