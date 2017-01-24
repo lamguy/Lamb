@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170123221413) do
+ActiveRecord::Schema.define(version: 20170124152749) do
 
   create_table "project_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.integer  "project_id"
@@ -59,8 +59,9 @@ ActiveRecord::Schema.define(version: 20170123221413) do
     t.integer  "assigner_id"
     t.integer  "assignee_id"
     t.date     "due"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "priority",    default: 0, null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.index ["assignee_id"], name: "index_tasks_on_assignee_id", using: :btree
     t.index ["assigner_id"], name: "index_tasks_on_assigner_id", using: :btree
     t.index ["project_id"], name: "index_tasks_on_project_id", using: :btree

@@ -10,7 +10,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-    @tasks = Project.find(params[:id]).tasks
+    @tasks = Project.find(params[:id]).tasks.includes(:assigner, :assignee).order(priority: :desc, due: :asc)
   end
 
   # GET /projects/new

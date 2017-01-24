@@ -1,4 +1,6 @@
 class Task < ApplicationRecord
+  include Priority
+  
   belongs_to :project
   has_many :task_metas
 

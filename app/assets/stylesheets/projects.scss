@@ -4,9 +4,38 @@
 
 .projects {
 	h5 {
-		color: #2a1ad0;
 		span {
-			color: $gray-dark;
+		}
+	}
+
+	table {
+		tbody {
+			tr.priority {
+				&.lowest {
+					color: lighten($gray-light, 10%);
+				}
+				&.highest {
+					font-weight: 500;
+					color: darken($red, 20%);
+					background: lighten($red, 38%);
+
+					&:hover {
+						background: lighten($red, 32%);
+					}
+
+					td {
+						border-bottom: 1px solid lighten($red, 32%);
+
+						a:link, a:visited {
+							color: inherit;
+						}
+
+						a:hover {
+							text-decoration: none;
+						}
+					}
+				}
+			}
 		}
 	}
 }
