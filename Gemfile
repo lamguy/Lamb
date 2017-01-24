@@ -12,6 +12,8 @@ gem 'rails', '~> 5.0.1'
 gem 'mysql2', '>= 0.3.18', '< 0.5'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
+# Use Bower in rails project
+gem "bower-rails", "~> 0.11.0"
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -36,7 +38,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'capistrano-rails', group: :development
 
 # bootstrap 4
-gem 'bootstrap', '~> 4.0.0.alpha5'
+# gem 'bootstrap', '~> 4.0.0.alpha5'
 
 # slugging system
 gem 'friendly_id', '~> 5.1.0' # Note: You MUST use 5.0.0 or greater for Rails 4.0+
