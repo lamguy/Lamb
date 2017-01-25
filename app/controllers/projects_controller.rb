@@ -5,6 +5,9 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @projects = Project.all
+
+    # get the count from the tasks efficently
+    @project_task_count = Task.all.includes(@projects).group(:project_id).count
   end
 
   # GET /projects/1

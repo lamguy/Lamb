@@ -43,7 +43,7 @@
         <td><%= task.assignee.name %></td>
         <td><%= task.due %></td>
         <td><%= task.priority_label %></td>
-        <td><%= task.get_comment_count(@task_comment_count[task.id]) %></td>
+        <td><%= get_count(@task_comment_count[task.id]) %></td>
         <td><%= link_to 'Show', task %></td>
         <td><%= link_to 'Edit', edit_task_path(task) %></td>
         <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
