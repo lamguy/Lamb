@@ -11,27 +11,28 @@
     </div>
   <% end %>
 
-  <div class="field">
+
+  <div class="field form-group">
     <%= f.label :project %>
-    <%= collection_select(:task, :project_id, Project.all, :id, :name, prompt: true) %>
+    <%= f.select :project_id, Project.all.collect {|p| [ p.name, p.id ] }, {}, {:class => "form-control"} %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :assignee %>
-    <%= collection_select(:task, :assignee_id, User.all, :id, :email, prompt: true) %>
+    <%= f.select :assignee_id, User.all.collect {|p| [ p.name, p.id ] }, {}, {:class => "form-control"} %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :class => "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :due %>
-    <%= f.datetime_select :due %>
+    <%= f.datetime_select :due, :class => "form-control" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions form-group">
+    <%= f.submit :class => "btn btn-primary" %>
   </div>
 <% end %>
