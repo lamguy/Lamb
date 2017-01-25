@@ -11,9 +11,23 @@
 	table {
 		tbody {
 			tr.priority {
+				&.uncategorized {
+					background: lighten($orange, 30%);
+					color: lighten($gray-light, 10%);
+
+					&:hover {
+						background: lighten($orange, 22%);
+					}
+
+					td {
+						border-bottom: 1px solid lighten($orange, 20%);
+					}
+				}
+
 				&.lowest {
 					color: lighten($gray-light, 10%);
 				}
+
 				&.highest {
 					font-weight: 500;
 					color: darken($red, 20%);
@@ -25,14 +39,16 @@
 
 					td {
 						border-bottom: 1px solid lighten($red, 32%);
+					}
+				}
 
-						a:link, a:visited {
-							color: inherit;
-						}
+				td {
+					a:link, a:visited {
+						color: inherit;
+					}
 
-						a:hover {
-							text-decoration: none;
-						}
+					a:hover {
+						text-decoration: none;
 					}
 				}
 			}
