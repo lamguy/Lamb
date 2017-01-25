@@ -10,17 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170124221712) do
-
-  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
-    t.integer  "user_id"
-    t.integer  "task_id"
-    t.text     "comment",    limit: 65535
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.index ["task_id"], name: "index_comments_on_task_id", using: :btree
-    t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
-  end
+ActiveRecord::Schema.define(version: 20170125195033) do
 
   create_table "project_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.integer  "project_id"
@@ -76,13 +66,14 @@ ActiveRecord::Schema.define(version: 20170124221712) do
   create_table "tasks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.integer  "project_id"
     t.string   "name"
-    t.text     "description", limit: 65535
+    t.text     "description",         limit: 65535
     t.integer  "assigner_id"
     t.integer  "assignee_id"
     t.date     "due"
-    t.integer  "priority",                  default: 0, null: false
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.integer  "priority",                          default: 0, null: false
+    t.integer  "task_comments_count",               default: 0
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
     t.index ["assignee_id"], name: "index_tasks_on_assignee_id", using: :btree
     t.index ["assigner_id"], name: "index_tasks_on_assigner_id", using: :btree
     t.index ["project_id"], name: "index_tasks_on_project_id", using: :btree
@@ -123,8 +114,6 @@ ActiveRecord::Schema.define(version: 20170124221712) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "comments", "tasks"
-  add_foreign_key "comments", "users"
   add_foreign_key "project_users", "projects"
   add_foreign_key "project_users", "users"
   add_foreign_key "task_comments", "tasks"
