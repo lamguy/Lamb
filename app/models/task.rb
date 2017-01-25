@@ -8,4 +8,12 @@ class Task < ApplicationRecord
 
   belongs_to :assigner, :class_name => 'User'
   belongs_to :assignee, :class_name => 'User'
+
+  def get_comment_count(count)
+    if(!count)
+      0
+    else
+      count
+    end
+  end
 end
