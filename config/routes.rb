@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :tasks
+  resources :tasks do
+    resources :task_comments
+  end
+
   get 'dashboard/index'
 
   resources :projects

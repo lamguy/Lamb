@@ -1,7 +1,9 @@
 class Task < ApplicationRecord
-  include Priority
+  include Tasks::Priority
+  include Tasks::Description
   
   belongs_to :project
+  has_many :task_comments
   has_many :task_metas
 
   belongs_to :assigner, :class_name => 'User'

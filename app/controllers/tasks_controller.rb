@@ -10,6 +10,7 @@ class TasksController < ApplicationController
   # GET /tasks/1
   # GET /tasks/1.json
   def show
+    @comments = Task.find(params[:id]).task_comments.includes(:user)
   end
 
   # GET /tasks/new

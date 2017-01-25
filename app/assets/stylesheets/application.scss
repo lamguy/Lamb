@@ -13,9 +13,10 @@
  */
 // Custom bootstrap variables must be set or imported before bootstrap itself.
 @import "bootstrap-customized";
-@import "bootstrap";
+@import "bootstrap/scss/bootstrap";
 @import "app";
 @import "header";
 @import "footer";
 @import "dashboard";
 @import "projects";
+@import "tasks";
