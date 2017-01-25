@@ -17,6 +17,7 @@
 
 <body class="<%= body_css_class %>">
 
+<% if user_signed_in? %>
 <div class="blog-masthead">
   <div class="container">
     <nav class="nav blog-nav">
@@ -32,6 +33,7 @@
     </ul>
   </div>
 </div>
+<% end %>
 
 <div class="container">
   <p class="notice"><%= notice %></p>
