@@ -14,5 +14,3 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-
-// var simplemde = new SimpleMDE({ element: $("#comment-box")[0] })

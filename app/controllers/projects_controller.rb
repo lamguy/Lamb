@@ -7,7 +7,8 @@ class ProjectsController < ApplicationController
     @projects = Project.all
 
     # get the count from the tasks efficently
-    @project_task_count = Task.all.includes(@projects).group(:project_id).count
+    @project_tasks_count = Task.all.includes(@projects).group(:project_id).count
+    @project_teams_count = ProjectTeam.all.includes(@projects).group(:project_id).count
   end
 
   # GET /projects/1

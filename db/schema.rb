@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170125215118) do
+ActiveRecord::Schema.define(version: 20170126170651) do
+
+  create_table "project_teams", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "project_id"
+    t.integer  "team_id"
+    t.integer  "role_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_project_teams_on_project_id", using: :btree
+    t.index ["role_id"], name: "index_project_teams_on_role_id", using: :btree
+    t.index ["team_id"], name: "index_project_teams_on_team_id", using: :btree
+  end
 
   create_table "project_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "project_id"
@@ -30,8 +41,9 @@ ActiveRecord::Schema.define(version: 20170125215118) do
 
   create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "power",      default: 0, null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "task_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -114,6 +126,9 @@ ActiveRecord::Schema.define(version: 20170125215118) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "project_teams", "projects"
+  add_foreign_key "project_teams", "roles"
+  add_foreign_key "project_teams", "teams"
   add_foreign_key "project_users", "projects"
   add_foreign_key "project_users", "users"
   add_foreign_key "task_comments", "tasks"

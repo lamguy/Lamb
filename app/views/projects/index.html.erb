@@ -6,6 +6,7 @@
       <th>Name</th>
       <th>Tasks</th>
       <th>Status</th>
+      <th>Teams</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,8 +15,9 @@
     <% @projects.each do |project| %>
       <tr>
         <td><strong><%= link_to project.name, project_path(project) %></strong></td>
-        <td><%= get_count(@project_task_count[project.id]) %></td>
+        <td><%= get_count(@project_tasks_count[project.id]) %></td>
         <td><%= project.status_label %></td>
+        <td><%= get_count(@project_teams_count[project.id]) %></td>
         <td><%= link_to 'Show', project %></td>
         <td><%= link_to 'Edit', edit_project_path(project) %></td>
         <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
