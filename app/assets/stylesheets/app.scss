@@ -1,3 +1,8 @@
+$priority-lowest-color:  lighten($gray-light, 10%);
+$priority-low-color: 	 lighten($gray-light, 5%);
+$priority-normal-color:  $gray-light;
+$priority-high-color: 	 darken($red, 10%);
+$priority-highest-color: darken($red, 20%);
 
 body {
   font-family:
@@ -9,4 +14,24 @@ body {
 }
 
 .container-wrapper {
+}
+
+.priority-lowest {
+  @include badge-variant($priority-lowest-color);
+}
+
+.priority-low {
+  @include badge-variant($priority-low-color);
+}
+
+.priority-normal {
+  @include badge-variant($priority-normal-color);
+}
+
+.priority-high {
+  @include badge-variant($priority-high-color);
+}
+
+.priority-highest {
+  @include badge-variant($priority-highest-color);
 }
