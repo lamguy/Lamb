@@ -12,7 +12,7 @@
   <tbody>
     <% @teams.each do |team| %>
       <tr>
-        <td><%= team.name %></td>
+        <td><%= link_to team.name, team_path(team) %></td>
         <td><%= get_count(@team_members_count[team.id]) %></td>
         <td><%= link_to 'Show', team %></td>
         <td><%= link_to 'Edit', edit_team_path(team) %></td>
