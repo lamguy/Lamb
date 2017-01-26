@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   resources :projects
   get 'projects/:id/teams', to: 'projects#teams'
+  post 'projects/:id/teams/:team_id/role', to: 'projects#change_role'
 
   resources :teams
   devise_for :users

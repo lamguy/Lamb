@@ -17,7 +17,7 @@
         <td><%= get_count(@team_members_count[team.id]) %></td>
         <td>
 			<%= form_tag("change_permission", :id => "filter_form", :method => "post", :remote => true) do |f| %>
-			  <%= select_tag(:role_id, options_from_collection_for_select(Role.all.order(power: :desc), :id, :name, team.role.ids), class: 'form-control') %>
+			  <%= select_tag(:role_id, options_from_collection_for_select(Role.all.order(power: :desc), :id, :name, team.role.ids), class: 'form-control project_team_role') %>
 			<% end %>
         </td>
         <td><%= link_to 'Show', team %></td>

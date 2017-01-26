@@ -8,5 +8,9 @@ module Projects
       # get the count from the teams efficently
       @team_members_count = TeamMember.all.includes(@teams).group(:team_id).count
     end
+
+    def role
+      
+    end
   end
 end
