@@ -20,7 +20,10 @@ default: &default
 
 development:
   <<: *default
+  username: lamb
+  password: lambdev
   database: lamb_development
+  host: 34.195.209.100
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

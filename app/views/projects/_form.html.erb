@@ -16,10 +16,12 @@
     <%= f.text_field :name, :class => "form-control" %>
   </div>
 
-  <div class="field form-group">
-    <%= f.label :status %>
-    <%= f.text_field :status, :class => "form-control" %>
-  </div>
+  <% if !current_page?(new_project_path) %>
+    <div class="field form-group">
+      <%= f.label :status %>
+      <%= f.text_field :status, :class => "form-control" %>
+    </div>
+  <% end %>
 
   <div class="field form-group">
     <%= f.submit class: 'btn btn-primary' %>

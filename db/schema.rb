@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20170125215118) do
 
-  create_table "project_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "project_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "project_id"
     t.integer  "user_id"
     t.datetime "created_at", null: false
@@ -21,20 +21,20 @@ ActiveRecord::Schema.define(version: 20170125215118) do
     t.index ["user_id"], name: "index_project_users_on_user_id", using: :btree
   end
 
-  create_table "projects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "projects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       default: "", null: false
     t.integer  "status",     default: 1,  null: false
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end
 
-  create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "task_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "task_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
     t.integer  "task_id"
     t.text     "comment",    limit: 65535
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20170125215118) do
     t.index ["user_id"], name: "index_task_comments_on_user_id", using: :btree
   end
 
-  create_table "task_meta", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "task_meta", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "project_id"
     t.string   "name"
     t.string   "label"
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20170125215118) do
     t.index ["project_id"], name: "index_task_meta_on_project_id", using: :btree
   end
 
-  create_table "task_meta_data", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "task_meta_data", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "task_meta_id"
     t.string   "value"
     t.datetime "created_at",   null: false
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 20170125215118) do
     t.index ["value"], name: "index_task_meta_data_on_value", using: :btree
   end
 
-  create_table "tasks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "tasks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "project_id"
     t.string   "name"
     t.text     "description",         limit: 65535
@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 20170125215118) do
     t.index ["project_id"], name: "index_tasks_on_project_id", using: :btree
   end
 
-  create_table "team_members", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "team_members", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "team_id"
     t.integer  "user_id"
     t.integer  "role_id"
@@ -90,13 +90,13 @@ ActiveRecord::Schema.define(version: 20170125215118) do
     t.index ["user_id"], name: "index_team_members_on_user_id", using: :btree
   end
 
-  create_table "teams", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "teams", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
