@@ -48,6 +48,7 @@ GEM
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.10.0)
     byebug (9.0.6)
+    cancancan (1.15.0)
     capistrano (3.7.1)
       airbrussh (>= 1.0.0)
       capistrano-harrow
@@ -198,6 +199,7 @@ DEPENDENCIES
   bower-rails (~> 0.11.0)
   bullet
   byebug
+  cancancan
   capistrano-rails
   coffee-rails (~> 4.2)
   devise
@@ -218,4 +220,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.14.2
+   1.14.3
