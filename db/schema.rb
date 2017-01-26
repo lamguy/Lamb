@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170126170651) do
+ActiveRecord::Schema.define(version: 20170126195252) do
+
+  create_table "milestones", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "project_id"
+    t.string   "name"
+    t.string   "description"
+    t.date     "due"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["project_id"], name: "index_milestones_on_project_id", using: :btree
+  end
 
   create_table "project_teams", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "project_id"
@@ -86,8 +96,10 @@ ActiveRecord::Schema.define(version: 20170126170651) do
     t.integer  "task_comments_count",               default: 0
     t.datetime "created_at",                                    null: false
     t.datetime "updated_at",                                    null: false
+    t.integer  "milestone_id"
     t.index ["assignee_id"], name: "index_tasks_on_assignee_id", using: :btree
     t.index ["assigner_id"], name: "index_tasks_on_assigner_id", using: :btree
+    t.index ["milestone_id"], name: "index_tasks_on_milestone_id", using: :btree
     t.index ["project_id"], name: "index_tasks_on_project_id", using: :btree
   end
 
@@ -126,6 +138,7 @@ ActiveRecord::Schema.define(version: 20170126170651) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "milestones", "projects"
   add_foreign_key "project_teams", "projects"
   add_foreign_key "project_teams", "roles"
   add_foreign_key "project_teams", "teams"
@@ -135,5 +148,6 @@ ActiveRecord::Schema.define(version: 20170126170651) do
   add_foreign_key "task_comments", "users"
   add_foreign_key "task_meta", "projects"
   add_foreign_key "task_meta_data", "task_meta", column: "task_meta_id"
+  add_foreign_key "tasks", "milestones"
   add_foreign_key "tasks", "projects"
 end

@@ -3,6 +3,8 @@ class Task < ApplicationRecord
   include Tasks::Description
   
   belongs_to :project
+  belongs_to :milestone
+  
   has_many :task_comments
   has_many :task_metas
 
