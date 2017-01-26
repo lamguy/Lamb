@@ -2,6 +2,7 @@ class Project < ApplicationRecord
   include Projects::Status
 
   has_many :project_users
+  has_many :project_teams
   has_many :users, :through => :project_users
   has_many :teams, :through => :project_teams
 

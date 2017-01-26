@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'dashboard/index'
 
   resources :projects
+  get 'projects/:id/teams', to: 'projects#teams'
+
   resources :teams
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
