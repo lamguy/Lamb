@@ -5,6 +5,7 @@
     <tr>
       <th>Team</th>
       <th>Members</th>
+      <th>Role</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,6 +15,11 @@
       <tr>
         <td><strong><%= link_to team.name, team_path(team) %></strong></td>
         <td><%= get_count(@team_members_count[team.id]) %></td>
+        <td>
+			<%= form_tag("change_permission", :id => "filter_form", :method => "post", :remote => true) do |f| %>
+			  <%= select_tag(:role_id, options_from_collection_for_select(Role.all.order(power: :desc), :id, :name, team.role.ids), class: 'form-control') %>
+			<% end %>
+        </td>
         <td><%= link_to 'Show', team %></td>
         <td><%= link_to 'Edit', edit_team_path(team) %></td>
         <td><%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
