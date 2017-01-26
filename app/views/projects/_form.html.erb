@@ -16,7 +16,7 @@
     <%= f.text_field :name, :class => "form-control" %>
   </div>
 
-  <% if !current_page?(new_project_path) %>
+  <% if action_name != "new" %>
     <div class="field form-group">
       <%= f.label :status %>
       <%= f.text_field :status, :class => "form-control" %>
