@@ -1,5 +1,6 @@
 class Role < ApplicationRecord
-  has_many :team, :through => :project_teams
+  has_many :teams, :through => :project_teams
+  has_many :projects, :through => :project_teams
   
   # Check if user is authorized by minimum role
   # Using the power value to determine if user has sufficent privileges

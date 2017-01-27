@@ -9,7 +9,17 @@ module Projects
       @team_members_count = TeamMember.all.includes(@teams).group(:team_id).count
     end
 
-    def role
+    def change_role
+      @project = Project.find(params[:id])
+
+      @project_team = @project.teams.find(params[:team_id])
+      @project_team.project_ids = params[:id]
+      @project_team.role_ids = params[:role_id]
+
+      @project_team.update
+    end
+
+    def remove_team
       
     end
   end

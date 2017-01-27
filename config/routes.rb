@@ -7,8 +7,10 @@ Rails.application.routes.draw do
   get 'dashboard/index'
 
   resources :projects
+
   get 'projects/:id/teams', to: 'projects#teams'
-  post 'projects/:id/teams/:team_id/role', to: 'projects#change_role'
+  post 'projects/:id/teams/:team_id/role', to: 'projects#change_role', :as => 'project_role'
+  delete 'projects/:id/teams/:team_id/remove', to: 'projects#remove_team', :as => 'project_team'
 
   resources :teams
   devise_for :users
