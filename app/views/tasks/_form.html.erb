@@ -14,7 +14,7 @@
 
   <div class="field form-group">
     <%= f.label :project %>
-    <%= f.select :project_id, Project.all.collect {|p| [ p.name, p.id ] }, {}, {:class => "form-control"} %>
+    <%= f.select :project_id, options_for_select(Project.all.collect {|p| [ p.name, p.id ] }, session[:project_id]), {}, {:class => "form-control"} %>
   </div>
 
   <div class="field form-group">
