@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :projects
 
   get 'projects/:id/teams', to: 'projects#teams'
+  post 'projects/switch', to: 'projects#switch', :as => 'project_switch'
   post 'projects/:id/teams/:team_id/role', to: 'projects#change_role', :as => 'project_role'
   delete 'projects/:id/teams/:team_id/remove', to: 'projects#remove_team', :as => 'project_team'
 

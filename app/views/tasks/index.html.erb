@@ -1,32 +1,36 @@
-<p id="notice"><%= notice %></p>
-
 <div class="row">
   <div class="col">
-<h1>Tasks</h1>
+    <table class="table table-sm table-striped table-hover tasks">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Assigner</th>
+          <th>Assignee</th>
+          <th>Due</th>
+          <th>Priority</th>
+          <th>Comments</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-<table class="table table-sm table-striped table-hover">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Due</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @tasks.each do |task| %>
-      <tr>
-        <td><%= task.name %></td>
-        <td><%= task.due %></td>
-        <td><%= link_to 'Show', task %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+      <tbody>
+        <% @tasks.each do |task| %>
+          <tr class="priority <%= task.priority_label.downcase %>">
+            <td><%= link_to task.name, task_path(task) %></td>
+            <td><%= task.assigner.name %></td>
+            <td><%= task.assignee.name %></td>
+            <td><%= task.due %></td>
+            <td><%= task.priority_label %></td>
+            <td><%= get_count(@task_comment_count[task.id]) %></td>
+            <td><%= link_to 'Show', task %></td>
+            <td><%= link_to 'Edit', edit_task_path(task) %></td>
+            <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
+
 
 <%= link_to 'New Task', new_task_path, :class => "btn btn-success" %>

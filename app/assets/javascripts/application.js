@@ -14,3 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).on("change", ".project-switch", function(e) {
+	$(this).closest("form").submit();
+})

@@ -4,7 +4,9 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all
+    @tasks = Task.includes(:assigner, :assignee).where(:project_id => session[:project_id]).order(priority: :desc, due: :asc)
+    # get the count from the comments efficently
+    @task_comment_count = TaskComment.all.includes(@tasks).group(:task_id).count
   end
 
   # GET /tasks/1

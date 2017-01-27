@@ -74,6 +74,15 @@ class ProjectsController < ApplicationController
     end
   end
 
+
+  def switch
+    session[:project_id] = params[:project_id]
+    respond_to do |format|
+      format.html { redirect_to tasks_url, notice: 'Switched project.' }
+      format.json { head :no_content }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project
