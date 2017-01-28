@@ -13,7 +13,8 @@
 	<div class="row">
 	  <div class="col col-md-10">
 		<strong>Due: </strong> <%= @task.due %> <br>
-		<strong>Assignee: </strong> <%= link_to @task.assignee.name, user_path(@task.assignee) %>
+		<strong>Assignee: </strong> <%= link_to @task.assignee.name, user_path(@task.assignee) %> <br>
+		<%= render 'tasks/followable' %>
 	  </div>
 	  <div class="col col-md-2">
 	  	<span class="badge priority-<%= @task.priority_label.downcase %> d-block"><%= @task.priority_label %></span>

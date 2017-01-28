@@ -1,6 +1,7 @@
 class Task < ApplicationRecord
   include Tasks::Priority
   include Tasks::Description
+  acts_as_followable
   
   belongs_to :project
   belongs_to :milestone

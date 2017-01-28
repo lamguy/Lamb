@@ -35,3 +35,11 @@ body {
 .priority-highest {
   @include badge-variant($priority-highest-color);
 }
+
+.btn-follow {
+  @include button-variant(#fff, $gray-light, $gray-light);
+}
+
+.btn-following {
+  @include button-variant(#fff, $green, $green);
+}

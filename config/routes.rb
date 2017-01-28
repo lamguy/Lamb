@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   resources :milestones
   resources :tasks do
     resources :task_comments
+
+    put '/follow', to: 'tasks#follow', :as => 'follow'
   end
 
   get 'dashboard/index'

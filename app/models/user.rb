@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  acts_as_follower
   has_many :team_members
   has_many :teams, :through => :team_members
 
