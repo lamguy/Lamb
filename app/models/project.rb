@@ -1,5 +1,7 @@
 class Project < ApplicationRecord
   include Projects::Status
+  include PublicActivity::Model
+  tracked
 
   has_many :project_users
   has_many :project_teams

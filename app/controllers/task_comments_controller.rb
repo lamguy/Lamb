@@ -33,7 +33,7 @@ class TaskCommentsController < ApplicationController
         format.html { redirect_to @task, notice: 'Task comment was successfully created.' }
         format.json { render :show, status: :created, location: @task }
       else
-        format.html { render :new }
+        format.html { redirect_to @task }
         format.json { render json: @task.errors, status: :unprocessable_entity }
       end
     end
