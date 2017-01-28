@@ -1,3 +1,25 @@
 // Place all the styles related to the TaskComments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#task-comments {
+	.comment {
+		border-bottom: solid 1px lighten($gray-light, 50%);
+		margin-bottom: 1rem;
+
+		&:last-child {
+			border-bottom: none;
+		}
+
+		.comment-body {
+			h6 {
+				font-size: 13px;
+				font-weight: bold;
+
+				span.comment-datetime {
+					font-weight: normal;
+					font-style: italic;
+				}
+			}
+		}
+	}
+}

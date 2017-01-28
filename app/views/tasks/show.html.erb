@@ -17,7 +17,7 @@
 		<%= render 'tasks/followable' %>
 	  </div>
 	  <div class="col col-md-2">
-	  	<span class="badge priority-<%= @task.priority_label.downcase %> d-block"><%= @task.priority_label %></span>
+	  	<span class="badge priority-<%= @task.priority_label.downcase %> d-block text-uppercase"><%= @task.priority_label %></span>
 	  </div>
 	</div>
 	<!-- end task header -->
@@ -38,7 +38,7 @@
 	    <% @comments.each do |comment| %>
 	    <div class="media comment">
 		  <div class="media-body comment-body">
-		    <h6 class="mt-0 mb-1"><%= comment.user.name %></h6>
+		    <h6 class="mt-0 mb-1"><%= comment.user.name %> <span class="comment-datetime">posted <%= time_ago_in_words(comment.created_at) %> ago</span></h6>
 			<%= markdown(comment.comment) %>
 		  </div>
 		</div>

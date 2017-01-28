@@ -17,4 +17,4 @@
 
 $(document).on("change", ".project-switch", function(e) {
 	$(this).closest("form").submit();
-})
+});
