@@ -46,8 +46,13 @@ module ApplicationHelper
     end
   end
 
-  
+
   def timeago(time)
     content_tag(:span, time.iso8601, title: time.iso8601, class: 'timeago')
+  end
+
+  # set title for individual page
+  def title(page_title)
+    content_for(:title) { page_title }
   end
 end
