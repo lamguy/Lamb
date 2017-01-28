@@ -32,6 +32,11 @@
     <%= f.datetime_select :due, :class => "form-control" %>
   </div>
 
+  <div class="field form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, rows: "10", :class => "form-control" %>
+  </div>
+
   <div class="actions form-group">
     <%= f.submit :class => "btn btn-primary" %>
   </div>
