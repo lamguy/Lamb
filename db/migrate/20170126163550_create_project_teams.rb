@@ -7,5 +7,7 @@ class CreateProjectTeams < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
+
+    add_index :project_teams, [:project, :team], unique: true
   end
 end
