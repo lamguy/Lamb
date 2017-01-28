@@ -12,6 +12,8 @@ class Task < ApplicationRecord
   belongs_to :assigner, :class_name => 'User'
   belongs_to :assignee, :class_name => 'User'
 
+  has_many :task_assets, :dependent => :destroy
+
   def get_comment_count(count)
     if(!count)
       0

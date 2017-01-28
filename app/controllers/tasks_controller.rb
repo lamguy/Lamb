@@ -30,7 +30,16 @@ class TasksController < ApplicationController
   def create
     @project = Project.find(task_params[:project_id])
     @task = @project.tasks.new(task_params)
+    @task.priority = 3
     @task.assigner = current_user
+     
+    if params[:task][:assets]
+      #abort params[:task][:assets].inspect
+      #===== The magic is here ;)
+      params[:task][:assets].each { |file|
+        @task.task_assets.build(user_id: current_user.id, :file => file)
+      }
+    end
 
     respond_to do |format|
       if @task.save
@@ -75,6 +84,6 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:project_id, :assigner_id, :assignee_id, :name, :due, :priority)
+      params.require(:task).permit(:project_id, :assigner_id, :assignee_id, :name, :due, :priority, :description, :task_assets)
     end
 end

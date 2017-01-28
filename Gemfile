@@ -34,6 +34,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Parse Markdown document
 gem 'redcarpet'
+gem 'paperclip', '~> 5.0.0'
 
 # Use Capistrano for deployment
 gem 'capistrano-rails', group: :development
