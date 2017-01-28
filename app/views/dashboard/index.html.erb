@@ -1,7 +1,7 @@
 <h1>Activities</h1>
 <% @activities.each do |activity| %>
   <div class="activity">
-    <%= link_to activity.owner.name, activity.owner if activity.owner %>
+    <%= link_to activity.parameters[:user_name], user_path(activity.parameters[:user_id]) %>
     <%= render_activity activity %>
   </div>
 <% end %>

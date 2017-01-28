@@ -1,6 +1,2 @@
 added comment to 
-<% if activity.trackable %>
-  <%= link_to activity.trackable.task.name, activity.trackable.task %>
-<% else %>
-  which has since been removed 
-<% end %>
+  <%= link_to activity.parameters[:task_name], task_path(activity.parameters[:task_id]) %>
