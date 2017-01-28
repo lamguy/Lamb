@@ -6,6 +6,9 @@ class ActsAsFollowableMigration < ActiveRecord::Migration[5.0]
       t.boolean :blocked, default: false, null: false
       t.timestamps
     end
+
+    add_index :follows, ["follower_id", "follower_type"],     :name => "fk_follows"
+    add_index :follows, ["followable_id", "followable_type"], :name => "fk_followables"
   end
 
   def self.down
