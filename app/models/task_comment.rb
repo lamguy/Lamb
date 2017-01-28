@@ -1,6 +1,6 @@
 class TaskComment < ApplicationRecord
   include PublicActivity::Model
-  tracked
+  tracked owner: Proc.new{ |controller, model| controller.current_user }, recipient: :task
 
   belongs_to :user
   belongs_to :task, counter_cache: true
