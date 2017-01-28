@@ -65,6 +65,7 @@ body {
 
 #main-content {
   padding: 30px 15px 15px;
+  width: calc(70% - 5px);
 }
 
 #sidebar {
@@ -78,9 +79,29 @@ body {
   background: #f5f7f9;
   padding: 7em 15px 60px 15px;
   border-left: 1px solid $border-color-base;
+  width: calc(30% - 5px);
 
   pre {
     overflow: auto;
     overflow-y: hidden;
   }
+}
+
+
+
+.gutter {
+  background-color: #eee;
+
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+
+.gutter.gutter-horizontal {
+  background-image: url('grips/vertical.png');
+  cursor: ew-resize;
+}
+
+.gutter.gutter-vertical {
+  background-image: url('grips/horizontal.png');
+  cursor: ns-resize;
 }

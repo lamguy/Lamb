@@ -1,36 +1,49 @@
 <div class="row">
-  <div class="col">
-    <table class="table table-sm table-striped table-hover tasks">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Assigner</th>
-          <th>Assignee</th>
-          <th>Due</th>
-          <th>Priority</th>
-          <th>Comments</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
 
-      <tbody>
-        <% @tasks.each do |task| %>
-          <tr class="priority <%= task.priority_label.downcase %>">
-            <td><%= link_to task.name, task_path(task) %></td>
-            <td><%= task.assigner.name %></td>
-            <td><%= task.assignee.name %></td>
-            <td><%= task.due %></td>
-            <td><%= task.priority_label %></td>
-            <td><%= get_count(@task_comment_count[task.id]) %></td>
-            <td><%= link_to 'Show', task %></td>
-            <td><%= link_to 'Edit', edit_task_path(task) %></td>
-            <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+  <!-- left column -->
+  <div class="col col-md-8" id="main-content">
+
+    <div class="row">
+      <div class="col">
+        <table class="table table-sm table-striped table-hover tasks">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Assigner</th>
+              <th>Assignee</th>
+              <th>Due</th>
+              <th>Priority</th>
+              <th>Comments</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @tasks.each do |task| %>
+              <tr class="priority <%= task.priority_label.downcase %>">
+                <td><%= link_to task.name, task_path(task), data: { no_turbolink: false } %></td>
+                <td><%= task.assigner.name %></td>
+                <td><%= task.assignee.name %></td>
+                <td><%= task.due %></td>
+                <td><%= task.priority_label %></td>
+                <td><%= get_count(@task_comment_count[task.id]) %></td>
+                <td><%= link_to 'Show', task %></td>
+                <td><%= link_to 'Edit', edit_task_path(task) %></td>
+                <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+    <%= link_to 'New Task', new_task_path, :class => "btn btn-success" %>
+
   </div>
-</div>
+  <!-- end: left col -->
 
+  <div class="col col-md-4" id="sidebar">
+  </div>
 
-<%= link_to 'New Task', new_task_path, :class => "btn btn-success" %>
+</div>  

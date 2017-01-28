@@ -3,7 +3,7 @@
 <div class="row">
 
   <!-- left column -->
-  <div class="col col-md-8" id="main-content">
+  <div class="" id="main-content">
 
   	<!-- begin task header -->
 	<div class="row">
@@ -16,10 +16,10 @@
 	  <div class="col col-md-10">
 		<strong>Due: </strong> <%= @task.due %> <br>
 		<strong>Assignee: </strong> <%= link_to @task.assignee.name, user_path(@task.assignee) %> <br>
-		<%= render 'tasks/followable' %>
+		<span class="badge priority-<%= @task.priority_label.downcase %> text-uppercase"><%= @task.priority_label %></span>
 	  </div>
-	  <div class="col col-md-2">
-	  	<span class="badge priority-<%= @task.priority_label.downcase %> d-block text-uppercase"><%= @task.priority_label %></span>
+	  <div class="col col-md-2 text-right">
+		<%= render 'tasks/followable' %>
 	  </div>
 	</div>
 	<!-- end task header -->
@@ -35,7 +35,7 @@
   </div>
   <!-- end: left col -->
 
-  <div class="col col-md-4" id="sidebar">
+  <div class="" id="sidebar">
   	<div id="task-comments">
 	    <% @comments.each do |comment| %>
 	    <div class="media comment">
@@ -62,11 +62,11 @@
 
 		      <div class="form-group">
 			    <%= f.label :comment, "Enter your comment" %>
-			    <%= f.text_area(:comment, :class => "form-control") %>
+			    <%= f.text_area(:comment, :class => "form-control", :rows => 5) %>
 			  </div>
 
 			  <div class="actions form-group">
-			    <%= f.submit "SUBMIT", :class => "btn btn-sm btn-success" %>
+			    <%= f.submit "Submit", :class => "btn btn-sm btn-success" %>
 			  </div>
 			<% end %>
 		  </div>

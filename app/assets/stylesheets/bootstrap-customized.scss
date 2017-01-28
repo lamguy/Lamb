@@ -6,4 +6,8 @@ $link-hover-color:      darken($link-color, 15%) !default;
 $link-hover-decoration: underline !default;
 
 // Font size
-$font-size-base: 0.85rem;
+
+$font-size-base: 0.80rem !default; // Assumes the browser default, typically `16px`
+$font-size-lg:   1rem !default;
+$font-size-sm:   .675rem !default;
+$font-size-xs:   .45rem !default;
