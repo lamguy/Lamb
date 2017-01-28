@@ -4,14 +4,20 @@ $priority-normal-color:  $gray-light;
 $priority-high-color: 	 darken($red, 10%);
 $priority-highest-color: darken($red, 20%);
 
+
+$border-color-base: #e9eaeb;
+
 body {
   font-family:
   /* 1 */ -apple-system, BlinkMacSystemFont,
   /* 2 */ "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
   /* 3 */ "Helvetica Neue", sans-serif;
+
+  line-height: 1.35;
 }
 
 .container-wrapper {
+
 }
 
 .priority-lowest {
@@ -40,4 +46,41 @@ body {
 
 .btn-following {
   @include button-variant(#fff, $green, $green);
+}
+
+.alert {
+  &.top-notification {
+    margin-bottom: 0;
+    border-radius: 0px;
+    z-index: 3000;
+    position: relative;
+  }
+}
+
+.masthead {
+  position: relative;
+  z-index: 2000;
+  border-bottom: solid 1px $border-color-base;
+}
+
+#main-content {
+  padding: 30px 15px 15px;
+}
+
+#sidebar {
+  z-index: 1000;
+  font-size: 12px;
+  position: fixed;
+  overflow-y: scroll;
+  right: 0;
+  top: 0;
+  height: 100%;
+  background: #f5f7f9;
+  padding: 7em 15px 60px 15px;
+  border-left: 1px solid $border-color-base;
+
+  pre {
+    overflow: auto;
+    overflow-y: hidden;
+  }
 }
