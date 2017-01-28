@@ -47,7 +47,7 @@ gem 'sidekiq'
 gem 'devise'
 gem 'cancancan'
 gem 'public_activity'
-gem 'acts_as_follower'
+gem 'acts_as_followable', git: 'git://github.com/lamguy/acts_as_followable.git'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
