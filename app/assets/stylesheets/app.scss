@@ -99,6 +99,9 @@ body {
 .gutter.gutter-horizontal {
   background-image: url('grips/vertical.png');
   cursor: ew-resize;
+  position: fixed;
+  width: 10px;
+  height: 100%
 }
 
 .gutter.gutter-vertical {
