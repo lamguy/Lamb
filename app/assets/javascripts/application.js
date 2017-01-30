@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap
 //= require turbolinks
 //= require Split.js/split.js
 //= require_tree .
