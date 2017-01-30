@@ -15,15 +15,16 @@
 //= require turbolinks
 //= require Split.js/split.js
 //= require_tree .
-function split_panel() {
-	var instance = Split(['#main-content', '#sidebar'], {
-	    sizes: [70, 30]
-	});
-}
 
-$(document).ready(function() {
-	$(document).on('turbolinks:load', split_panel );
-});
+// function split_panel() {
+// 	var instance = Split(['#main-content', '#sidebar'], {
+// 	    sizes: [70, 30]
+// 	});
+// }
+
+// $(document).ready(function() {
+// 	$(document).on('turbolinks:load', split_panel );
+// });
 
 $(document).on("change", ".project-switch", function(e) {
 	$(this).closest("form").submit();

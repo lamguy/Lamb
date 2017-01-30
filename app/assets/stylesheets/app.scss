@@ -64,22 +64,22 @@ body {
 }
 
 #main-content {
-  padding: 30px 15px 15px;
-  width: calc(70% - 5px);
+  // padding: 30px 15px 15px;
+  // width: calc(70% - 5px);
 }
 
 #sidebar {
   z-index: 1000;
   font-size: 12px;
-  position: fixed;
   overflow-y: scroll;
-  right: 0;
-  top: 0;
+  // position: fixed;
+  // right: 0;
+  // top: 0;
   height: 100%;
   background: #f5f7f9;
-  padding: 7em 15px 60px 15px;
+  // padding: 3em 15px 60px 15px;
   border-left: 1px solid $border-color-base;
-  width: calc(30% - 5px);
+  // width: calc(30% - 5px);
 
   pre {
     overflow: auto;
