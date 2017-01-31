@@ -13,8 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require tether
+//= require microplugin
+//= require sifter
 //= require bootstrap
 //= require turbolinks
+//= require selectize
 //= require Split.js/split.js
 //= require_tree .
 
@@ -27,6 +30,13 @@
 // $(document).ready(function() {
 // 	$(document).on('turbolinks:load', split_panel );
 // });
+ 
+$(document).ready(function() {
+	$('.selective').selectize({
+	    create: true,
+	    sortField: 'text'
+	});
+});
 
 $(document).on("change", ".project-switch", function(e) {
 	$(this).closest("form").submit();

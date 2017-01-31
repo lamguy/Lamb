@@ -17,7 +17,7 @@
         <td><%= get_count(@team_members_count[team.id]) %></td>
         <td>
 			<%= form_tag(project_role_path(params[:id], team.id), :id => "filter_form", :method => "post", :remote => true) do |f| %>
-			  <%= select_tag(:role_id, options_from_collection_for_select(Role.all.order(power: :desc), :id, :name, team.roles.ids), class: 'form-control form-control-sm project_team_role') %>
+			  <%= select_tag(:role_id, options_from_collection_for_select(Role.all.order(power: :desc), :id, :name, team.roles.ids), class: 'form-control form-control-sm project_team_role selective') %>
 			<% end %>
         </td>
         <td><%= link_to 'Remove', project_team_path(params[:id], team.id) %></td>

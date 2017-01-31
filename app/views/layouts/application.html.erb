@@ -36,7 +36,7 @@
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
             <%= form_tag(project_switch_path, :id => "filter_form", :method => "post", :remote => true) do |f| %>
-              <%= select_tag(:project_id, options_from_collection_for_select(Project.all.order(:name), :id, :name, session[:project_id]), class: 'form-control form-control-sm project-switch') %>
+              <%= select_tag(:project_id, options_from_collection_for_select(Project.all.order(:name), :id, :name, session[:project_id]), class: 'form-control form-control-sm project-switch selective') %>
             <% end %>
           </li>
           <li class="nav-item">
