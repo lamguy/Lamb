@@ -22,11 +22,14 @@ body {
 }
 
 .container-wrapper {
+  height: calc(100% - 60px - 45px);;
 
+  > .row {
+    height: 100%;
+  }
 }
 
 .row {
-  height:100%;
 }
 
 .priority-lowest {
@@ -77,6 +80,7 @@ body {
   // width: calc(70% - 5px);
   padding-top: 25px;
   background: #ffffff;
+  height: 100%;
 }
 
 #sidebar {
