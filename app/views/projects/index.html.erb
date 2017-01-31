@@ -1,31 +1,45 @@
-<h1>Projects</h1>
 
-<table class="table table-sm table-striped">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Tasks</th>
-      <th>Status</th>
-      <th>Teams</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @projects.each do |project| %>
-      <tr>
-        <td><strong><%= link_to project.name, project_path(project) %></strong></td>
-        <td><%= get_count(@project_tasks_count[project.id]) %></td>
-        <td><%= project.status_label %></td>
-        <td><%= get_count(@project_teams_count[project.id]) %></td>
-        <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="row">
 
-<br>
+  <!-- left column -->
+  <div class="col col-md-8" id="main-content">
 
-<%= link_to 'New Project', new_project_path %>
+    <h1>Projects</h1>
+
+    <table class="table table-sm table-striped table-hover table-bordered">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Tasks</th>
+          <th>Status</th>
+          <th>Teams</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @projects.each do |project| %>
+          <tr>
+            <td><strong><%= link_to project.name, project_path(project) %></strong></td>
+            <td><%= get_count(@project_tasks_count[project.id]) %></td>
+            <td><%= project.status_label %></td>
+            <td><%= get_count(@project_teams_count[project.id]) %></td>
+            <td><%= link_to 'Show', project %></td>
+            <td><%= link_to 'Edit', edit_project_path(project) %></td>
+            <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <br>
+
+    <%= link_to 'New Project', new_project_path %>
+
+  </div>
+  <!-- end: left col -->
+
+  <div class="col col-md-4" id="sidebar">
+  </div>
+</div>
