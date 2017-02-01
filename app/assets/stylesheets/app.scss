@@ -75,6 +75,10 @@ body {
   border-bottom: solid 1px $border-color-base;
 }
 
+#main-content, #sidebar {
+  overflow: auto;
+}
+
 #main-content {
   // padding: 30px 15px 15px;
   // width: calc(70% - 5px);

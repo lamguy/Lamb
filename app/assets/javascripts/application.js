@@ -26,17 +26,15 @@
 // 	});
 // }
 
-// $(document).ready(function() {
-// 	$(document).on('turbolinks:load', split_panel );
-// });
+$(document).on('turbolinks:load', function() {
+	$(document).on("change", ".project-switch", function(e) {
+		$(this).closest("form").submit();
+	});
+});
  
 $(document).ready(function() {
 	// $('.selective').selectize({
 	//     create: true,
 	//     sortField: 'text'
 	// });
-});
-
-$(document).on("change", ".project-switch", function(e) {
-	$(this).closest("form").submit();
 });
