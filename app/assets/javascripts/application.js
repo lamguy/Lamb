@@ -17,7 +17,6 @@
 //= require sifter
 //= require bootstrap
 //= require turbolinks
-//= require selectize
 //= require Split.js/split.js
 //= require_tree .
 
@@ -32,10 +31,10 @@
 // });
  
 $(document).ready(function() {
-	$('.selective').selectize({
-	    create: true,
-	    sortField: 'text'
-	});
+	// $('.selective').selectize({
+	//     create: true,
+	//     sortField: 'text'
+	// });
 });
 
 $(document).on("change", ".project-switch", function(e) {

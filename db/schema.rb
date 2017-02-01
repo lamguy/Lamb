@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170128151112) do
+ActiveRecord::Schema.define(version: 20170201162112) do
 
   create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "trackable_type"
@@ -48,6 +48,17 @@ ActiveRecord::Schema.define(version: 20170128151112) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["project_id"], name: "index_milestones_on_project_id", using: :btree
+  end
+
+  create_table "personal_settings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.string   "setting_key",   null: false
+    t.string   "setting_value", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["setting_key"], name: "index_personal_settings_on_setting_key", using: :btree
+    t.index ["setting_value"], name: "index_personal_settings_on_setting_value", using: :btree
+    t.index ["user_id"], name: "index_personal_settings_on_user_id", using: :btree
   end
 
   create_table "project_teams", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -88,10 +99,10 @@ ActiveRecord::Schema.define(version: 20170128151112) do
     t.integer  "task_id"
     t.integer  "user_id"
     t.string   "file_name"
-    t.string   "file_type"
+    t.string   "file_content_type"
     t.string   "file_size"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.index ["task_id"], name: "index_task_assets_on_task_id", using: :btree
     t.index ["user_id"], name: "index_task_assets_on_user_id", using: :btree
   end
@@ -179,6 +190,7 @@ ActiveRecord::Schema.define(version: 20170128151112) do
   end
 
   add_foreign_key "milestones", "projects"
+  add_foreign_key "personal_settings", "users"
   add_foreign_key "project_teams", "projects"
   add_foreign_key "project_teams", "roles"
   add_foreign_key "project_teams", "teams"

@@ -77,6 +77,7 @@ class ProjectsController < ApplicationController
 
   def switch
     session[:project_id] = params[:project_id]
+    current_user.personal_settings.first_or_create(setting_key: "current_project", setting_value: session[:project_id]).update(setting_value: session[:project_id])
     respond_to do |format|
       format.html { redirect_to tasks_url, notice: 'Switched project.' }
       format.json { head :no_content }
