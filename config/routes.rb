@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
   resources :users
+  get 'account/password', to: 'users#change_password', :as => 'change_password'
+  post 'account/password', to: 'users#update_password', :as => 'update_password'
 
   root to: "dashboard#index"
 end
