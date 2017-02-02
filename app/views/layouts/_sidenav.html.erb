@@ -1,0 +1,25 @@
+<nav class="navbar navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav metismenu" id="side-menu">
+                    <li>
+                        <%= link_to('<span class="typcn typcn-home-outline"></span> Dashboard'.html_safe, dashboard_index_path, :class => "nav-link")  %>
+                    </li>
+                    <li>
+                        <%= link_to('<span class="typcn typcn-book"></span> Projects'.html_safe, projects_path, :class => "nav-link")  %>
+                        <ul class="nav nav-second-level collapse">
+                            <li><a href="">New Project</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <%= link_to('<span class="typcn typcn-tick-outline"></span> Tasks'.html_safe, tasks_path, :class => "nav-link")  %>
+                    </li>
+                    <li>
+                        <%= link_to('<span class="typcn typcn-group-outline"></span> Teams'.html_safe, teams_path, :class => "nav-link")  %>
+                    </li>
+                    <li>
+                        <%= link_to('<span class="typcn typcn-user-outline"></span> Users'.html_safe, users_path, :class => "nav-link")  %>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>

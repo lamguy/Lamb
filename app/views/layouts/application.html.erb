@@ -39,21 +39,6 @@
               <%= select_tag(:project_id, options_from_collection_for_select(Project.all.order(:name), :id, :name, session[:project_id]), class: 'form-control form-control-sm project-switch selective') %>
             <% end %>
           </li>
-          <li class="nav-item">
-            <%= link_to('Dashboard', dashboard_index_path, :class => "nav-link")  %>
-          </li>
-          <li class="nav-item">
-            <%= link_to('Projects', projects_path, :class => "nav-link")  %>
-          </li>
-          <li class="nav-item">
-            <%= link_to('Tasks', tasks_path, :class => "nav-link")  %>
-          </li>
-          <li class="nav-item">
-            <%= link_to('Teams', teams_path, :class => "nav-link")  %>
-          </li>
-          <li class="nav-item">
-            <%= link_to('Users', users_path, :class => "nav-link")  %>
-          </li>
         </ul>
 
         <div class="dropdown">
@@ -70,6 +55,8 @@
     </nav>
 </div>
 <% end %>
+
+<%= render 'layouts/sidenav' %>
 
 <div class="container-wrapper container-fluid">
 
