@@ -18,12 +18,13 @@ body {
   /* 3 */ "Helvetica Neue", sans-serif;
 
   line-height: 1.35;
-  background: #f5f7f9;
+  background: $brand-secondary;
 }
 
 .container-wrapper {
   height: calc(100% - 60px - 45px);;
   margin: 0 0 0 220px;
+  background: $brand-third;
 
   > .row {
     height: 100%;
@@ -73,7 +74,12 @@ body {
 .masthead {
   position: relative;
   z-index: 2000;
-  border-bottom: solid 1px $border-color-base;
+  border-bottom: solid 1px darken($brand-primary, 10%);
+  background: $brand-primary;
+
+  .navbar-light .navbar-toggler, .navbar-light .navbar-brand {
+    color: #fff;
+  }
 }
 
 .navbar-static-side {
@@ -81,7 +87,7 @@ body {
     position: absolute;
     width: 220px;
     padding: 0;
-    font-size: 120%;
+    font-size: 110%;
 
     .nav {
       display: block;
@@ -89,17 +95,16 @@ body {
         position: relative;
         display: block;
         > a {
-          font-weight: 600;
           position: relative;
           display: block;
           padding: 10px 15px;
 
           &:link, &:visited {
-            color: #292b2c;
+            color: lighten($brand-secondary, 50%);
           }
 
           &:hover {
-            background-color: rgba(0, 0, 0, 0.075);
+            background-color: rgba(0, 0, 0, 0.95);
           }
         }
       }
@@ -114,10 +119,15 @@ body {
   overflow: auto;
 }
 
+#header-bar {
+  height: 45px !important;
+  background: darken($brand-primary, 10%);
+}
+
 #main-content {
   // padding: 30px 15px 15px;
   // width: calc(70% - 5px);
-  padding-top: 25px;
+  padding-top: 50px;
   background: #ffffff;
   height: 100%;
 }

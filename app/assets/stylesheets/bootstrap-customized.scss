@@ -1,6 +1,23 @@
+// Reassign color vars to semantic color scheme
+$brand-primary:             #F15025 !default;
+// $brand-success:             $green !default;
+// $brand-info:                $teal !default;
+// $brand-warning:             $orange !default;
+// $brand-danger:              $red !default;
+// $brand-inverse:             $gray-dark !default;
+$brand-secondary: 			#191919 !default;
+$brand-third:				#F7F9F7 !default;
+
+
+$grid-gutter-width-base:     50px !default;
+
+
+// Navbar
+$spacer:            		.5rem !default;
+
 
 // Link colors
-$link-color:            #2A1AD0 !default;
+$link-color:            $brand-primary !default;
 $link-decoration:       none !default;
 $link-hover-color:      darken($link-color, 15%) !default;
 $link-hover-decoration: underline !default;
